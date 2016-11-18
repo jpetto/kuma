@@ -28,6 +28,10 @@ node {
         sh "make k8s-migrate"
         break
 
+      case 'stage-integration-tests':
+        stage 'Stage integration tests'
+        sh 'docker/run_integration_tests.sh https://developer.allizom.org'
+
       default:
         env.DEIS_APP = 'mdn-' + env.BRANCH_NAME
 
