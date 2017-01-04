@@ -2,10 +2,7 @@ sudo: required
 branches:
     only:
         - master
-cache:
-    apt: true
-    directories:
-        - $HOME/.cache/pip
+cache: pip
 language: python
 python:
     - "2.7"
@@ -33,7 +30,7 @@ before_install:
 install:
     - pip install -r requirements/travis.txt
     - if [[ $TOXENV == 'py27' ]]; then ansible-playbook -vvv --tags=mysql,pipeline --connection=local --inventory-file=provisioning/inventory provisioning/travis.yml; fi
-script: tox -v
+script: tox -r -v
 after_failure:
     - dmesg | tail
 after_success:
