@@ -21,7 +21,7 @@ services:
       - CSRF_COOKIE_SECURE=False
       - DATABASE_URL=mysql://root:kuma@mysql:3306/developer_mozilla_org
       - DEBUG=True
-      - DEBUG_TOOLBAR=True
+      - DEBUG_TOOLBAR=False # Set to True if you need it, but severely impacts response time
       - DOMAIN=localhost
       - ES_URLS=elasticsearch:9200
       - KUMASCRIPT_URL_TEMPLATE=http://kumascript:9080/docs/{path}
